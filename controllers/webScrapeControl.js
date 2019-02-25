@@ -21,7 +21,7 @@ const cheerio = require("cheerio");
             console.log(result);
         });
 
-         res.send("scrape complete")
+         res.render("index")
     })
 
 });
