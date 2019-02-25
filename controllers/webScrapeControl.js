@@ -9,9 +9,21 @@ const cheerio = require("cheerio");
 // var db = require("../models");
 
  router.get("/", (req, res) => {
-    res.render("index")
-  });
+     // grab the html body via axios
+    axios.get("https://www.npr.org").then((response) => {
+        // load the response into cheerio and save it to $
+        const $ = cheerio.load(response.data);
+        $("article").each((i, element) => {
+            let result = {};
+            result.title = $(element).find("h3").text();
+            result.summary = $(element).find("p").text();
+            result.link = `https://www.npr.org${$(element).find("a").attr("href")}`;
+            console.log(result);
+        });
 
+         res.send("scrape complete")
+    })
 
+});
 
  module.exports = router; 
