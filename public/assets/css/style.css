@@ -6,8 +6,8 @@
 }
 
 body {
-    background-color: dimgray;
-    font-family: 'Acme', sans-serif;
+    background-color: dimgray; 
+    font-family: 'Special Elite', cursive;
     background-image:  url("../img/newsPaper.jpg");
     background-size: cover;
   }
@@ -26,6 +26,7 @@ body {
   }
   .card-content {
     height: 180px;
+    font-family: 'Quattrocento Sans', sans-serif;
   }
   
   .card-title {

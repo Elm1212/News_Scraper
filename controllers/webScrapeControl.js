@@ -8,7 +8,7 @@ const cheerio = require("cheerio");
 // Require all models
 var db = require("../models");
 
-// GET route for index and scraping MixMag website
+// GET route for index and scraping NPR news website
 router.get("/scrape", (req, res) => {
   // grab the html body via axios
   axios.get("https://www.npr.org").then(function(response) {
@@ -22,7 +22,7 @@ router.get("/scrape", (req, res) => {
       result.summary = $(element)
         .find("p")
         .text();
-      result.link = `https://www.npr.org${$(element)
+      result.link = `https://www.npr.org'${$(element)
         .find("a")
         .attr("href")}`;
 
