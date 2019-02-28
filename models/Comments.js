@@ -1,14 +1,21 @@
 const mongoose = require("mongoose");
 
- // save reference to schema constructor
-const Schema = mongoose.Schema; 
+// save reference to schema constructor
+const Schema = mongoose.Schema;
 
- const CommentsSchema = new Schema ({
-    title: String,
-    body: String
+const CommentSchema = new Schema({
+  body: {
+    type: String,
+    validate: [
+      function(input) {
+        return input.length >= 1;
+      },
+      "Please input more than 1 character for comment"
+    ]
+  }
 });
 
- // create the model using mongoose method
-const Comments = mongoose.model("Comments", CommentsSchema);
+// create the model using the mongoose method
+const Comment = mongoose.model("Comment", CommentSchema);
 
- module.exports = Comments;
+module.exports = Comment;
