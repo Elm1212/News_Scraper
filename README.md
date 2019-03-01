@@ -10,3 +10,5 @@ Technologies Used:
 - Express
 - Cheerio
 - Axios
+
+Deplyed at https://newscrapers.herokuapp.com/
